@@ -1,0 +1,95 @@
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href=
+        "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script
+        src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js">
+    </script>
+    <script src=
+        "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js">
+    </script>
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+    <style>
+        body
+        {
+            background-image: url("loginbackground.jpg");
+            color: white;
+        }
+        .button,.btn
+        {
+            background-color: goldenrod;
+            color: black;
+            border: 10px;
+            padding: 15px 20px;
+            text-align: center;
+            font-size: 16px;
+            margin: 20px;
+            box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+        }
+        .dropdown
+        {
+            display:inline-block;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <center><br><br>
+            <img src="logo.png" alt="logo"><br><br>
+            <h3><b> Fill in the details to prepare the quiz </b></h3><br><br>
+        </center>
+        <form action = "Prepare_Quiz.pl" method = "GET">
+            <h4><b>Test No.:</b></h4>
+            <input id="testno" type="text" class="form-control" name="testno">
+            <br><br>
+            <h4><b>Branch:<br>
+            <center>
+                <input type="radio" id="CS" name="CS" value="CS"checked>CS &ensp;
+                <input type="radio" id="IT" name="CS" value="IT">IT &ensp;
+                <input type="radio" id="Mech" name="CS" value="Mech">Mech &ensp;
+                <input type="radio" id="EnTc" name="CS" value="EnTc">EnTc &ensp;
+                <input type="radio" id="Civil" name="CS" value="Civil">Civil
+            </center>
+            <br><br>
+            Year:<br>
+            <center>
+                <input type="radio" id="First" name="First" value="First"checked>First &ensp;
+                <input type="radio" id="Second" name="First" value="Second">Second &ensp;
+                <input type="radio" id="Third" name="First" value="Third">Third &ensp;
+                <input type="radio" id="Fourth" name="First" value="Fourth">Fourth
+            </center>
+            </b></h4>
+            <br><br>
+            <h4><b>Batch:</b></h4>
+            <input id="batch" type="text" class="form-control" name="batch">
+            <br><br>
+            <h4><b>Semester:</b></h4>
+            <input id="semester" type="text" class="form-control" name="semester">
+            <br><br>
+            <h4><b>Subject:</b></h4>
+            <input id="subject" type="text" class="form-control" name="subject">
+            <br><br>
+            <h4><b>Maximum Marks:</b></h4>
+            <input id="maxmarks" type="text" class="form-control" name="maxmarks">
+            <br><br>
+            <h4><b>No. of Questions:</b></h4>
+            <input id="noq" type="text" class="form-control" name="noq">
+            <br><br>
+            <h4><b>Submission Date:</b></h4>
+            <input id="subdate" type="text" class="form-control" name="subdate">
+            <br><br>
+            <center>
+            <button type="submit" class="btn" name="PrepareQuiz" value="Submit"><b>
+                    Prepare this Quiz
+            </b></button>
+            </center>
+
+        </form>
+        <br>
+    </div>
+
+</body>
+</html>
