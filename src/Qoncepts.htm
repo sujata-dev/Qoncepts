@@ -14,7 +14,7 @@
     <style>
         body
         {
-            background-image: url("background.jpg");
+            background-image: url("aa.jpg");
         }
         .button,.btn
         {
@@ -24,52 +24,68 @@
             text-align: center;
             font-size: 16px;
             margin: 20px;
-            box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+            box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0
+                        rgba(0,0,0,0.19);
         }
         .dropdown
         {
-            display:inline-block;
+            display: inline-block;
         }
     </style>
 </head>
 <body>
-
     <div class="container">
-        <center>
         <br><br><br><br><br>
+        <center>
             <a href="logo.png" target="_blank">
                 <img src="logo.png" alt="logo">
             </a><br><br>
 
-            <p style="font-size:170%"><b>Let's Get Started!</b></p><br>
+            <p style="font-size:170%"><b> Let's Get Started! </b></p><br>
 
             <div class="dropdown">
-                <button class="btn dropdown-toggle" type="button" data-toggle="dropdown">
+                <button class="btn dropdown-toggle" type="button"
+                        data-toggle="dropdown">
                     <span class="glyphicon glyphicon-user"></span>
-                    <b>Register <span class="caret"></span></b>
+                    <b> Register <span class="caret"></span></b>
                 </button>
                 <ul class="dropdown-menu" align="center">
-                    <li>
-                        <a role="button" data-toggle="modal" data-target="#registerTeacherModal"><b> Teachers </b></a>
-                    </li>
-                    <li>
-                        <a role="button" data-toggle="modal" data-target="#registerStudentModal"><b> Students </b></a>
-                    </li>
+                    <li><b>
+                        <a role="button" data-toggle="modal"
+                            data-target="#registerTeacherModal">
+                            Teachers
+                        </a>
+                    </b></li>
+
+                    <li><b>
+                        <a role="button" data-toggle="modal"
+                            data-target="#registerStudentModal">
+                            Students
+                        </a>
+                    </b></li>
                 </ul>
             </div>
 
             <div class="dropdown">
-                <button class="btn dropdown-toggle" type="button" data-toggle="dropdown">
+                <button class="btn dropdown-toggle" type="button"
+                        data-toggle="dropdown">
                     <span class="glyphicon glyphicon-log-in"></span>
-                    <b>Login <span class="caret"></span></b>
+                    <b> Login <span class="caret"></span></b>
                 </button>
                 <ul class="dropdown-menu" align="center">
-                    <li>
-                        <a role="button" data-toggle="modal" data-target="#loginTeacherModal"><b> Teachers </b></a>
-                    </li>
-                    <li>
-                        <a role="button" data-toggle="modal" data-target="#loginStudentModal"><b> Students </b></a>
-                    </li>
+                    <li><b>
+                        <a role="button" data-toggle="modal"
+                            data-target="#loginTeacherModal">
+                            Teachers
+                        </a>
+                    </b></li>
+
+                    <li><b>
+                        <a role="button" data-toggle="modal"
+                            data-target="#loginStudentModal">
+                            Students
+                        </a>
+                    </b></li>
                 </ul>
             </div>
         </center>
@@ -86,30 +102,42 @@
                     <button type="button" class="close" data-dismiss="modal">
                         &times;
                     </button>
-                    <h4 class="modal-title">Register Your Account</h4>
+                    <h4 class="modal-title"> Register Your Account </h4>
                 </div>
+
                 <div class="modal-body">
                     <p><center>
                         Fill the form to set up your account.
                     </center></p>
-                    <form action = "SignupTeacher.pl" method = "GET">
-                        <input id="tid" type="text" class="form-control" name="tid" placeholder="Teacher ID">
-                        <br>
-                        <input id="name" type="text" class="form-control" name="name" placeholder="Full Name">
-                        <br>
-                        <input id="email" type="text" class="form-control" name="email" placeholder="College Email ID">
-                        <br>
-                        <input id="password" type="password" class="form-control" name="password" placeholder="Password*">
-                        <br>
-                        <input id="cpassword" type="password" class="form-control" name="cpassword" placeholder="Confirm Password">
-                        <br><br>
-                        <center><b>
-                            *Password should be between 5-10 characters. It should contain atleast one alphabet and one numeric digit.
-                        </b></center>
 
+                    <form action="SignupTeacher.pl" method="GET">
+                        <input id="tid" type="text" class="form-control"
+                                name="tid" placeholder="Teacher ID"><br>
+
+                        <input id="name" type="text" class="form-control"
+                                name="name" placeholder="Full Name"><br>
+
+                        <input id="email" type="text" class="form-control"
+                                name="email" placeholder="College Email ID">
+                        <br>
+
+                        <input id="password" type="password"
+                                class="form-control" name="password"
+                                placeholder="Password*"><br>
+
+                        <input id="cpassword" type="password"
+                                class="form-control" name="cpassword"
+                                placeholder="Confirm Password"><br><br>
+
+                        <center><b>
+                            *Password should be between 5-10 characters. It
+                            should contain atleast one alphabet and one
+                            numeric digit.
+                        </b></center>
                 </div>
                 <div class="modal-footer">
-                    <button type="submit" class="btn" name="RegisterTeacher" value="Submit"><b>
+                    <button type="submit" class="btn" name="RegisterTeacher"
+                            value="Submit"><b>
                         Register
                     </b></button>
                     </form>
@@ -119,59 +147,84 @@
     </div>
 
 
-
     <!-- sign up modal for Students -->
     <div class="modal fade" id="registerStudentModal" role="dialog">
         <div class="modal-dialog">
-            <!-- Modal content-->
             <div class="modal-content">
                 <div class="modal-header">
-                    <!-- '&times;' stands for × in html -->
                     <button type="button" class="close" data-dismiss="modal">
                         &times;
                     </button>
-                    <h4 class="modal-title">Register Your Account</h4>
+                    <h4 class="modal-title"> Register Your Account </h4>
                 </div>
+
                 <div class="modal-body">
                     <p><center>
                         Fill the form to set up your account.
                     </center></p>
-                    <form action = "SignupStudent.pl" method = "GET">
-                        <input id="prn" type="text" class="form-control" name="prn" placeholder="Student PRN">
-                        <br>
-                        <input id="name" type="text" class="form-control" name="name" placeholder="Full Name">
-                        <br>
-                        <b>&ensp;Branch:<br>
+
+                    <form action="SignupStudent.pl" method="GET">
+                        <input id="prn" type="text" class="form-control"
+                                name="prn" placeholder="Student PRN"><br>
+
+                        <input id="name" type="text" class="form-control"
+                        name="name" placeholder="Full Name"><br>
+
+                        <b> &ensp;Branch: <br>
                         <!-- '&ensp;' stands for space in html -->
                         <center>
-                            <input type="radio" id="CS" name="CS" value="CS"checked>CS &ensp;
-                            <input type="radio" id="IT" name="CS" value="IT">IT &ensp;
-                            <input type="radio" id="Mech" name="CS" value="Mech">Mech &ensp;
-                            <input type="radio" id="EnTc" name="CS" value="EnTc">EnTc &ensp;
-                            <input type="radio" id="Civil" name="CS" value="Civil">Civil
-                        </center></b>
-                        <br>
-                        <b>&ensp;Year:<br>
-                        <center>
-                            <input type="radio" id="First" name="First" value="First"checked>First &ensp;
-                            <input type="radio" id="Second" name="First" value="Second">Second &ensp;
-                            <input type="radio" id="Third" name="First" value="Third">Third &ensp;
-                            <input type="radio" id="Fourth" name="First" value="Fourth">Fourth
-                        </center></b>
-                        <br>
-                        <input id="email" type="text" class="form-control" name="email" placeholder="College Email ID">
-                        <br>
-                        <input id="password" type="password" class="form-control" name="password" placeholder="Password*">
-                        <br>
-                        <input id="cpassword" type="password" class="form-control" name="cpassword" placeholder="Confirm Password">
-                        <br><br>
-                        <center><b>
-                            *Password should be between 5-10 characters. It should contain atleast one alphabet and one numeric digit.
-                        </b></center>
+                            <input type="radio" id="CS" name="CS"
+                                    value="CS"checked> CS &ensp;
 
+                            <input type="radio" id="IT" name="CS"
+                                    value="IT"> IT &ensp;
+
+                            <input type="radio" id="Mech" name="CS"
+                                    value="Mech"> Mech &ensp;
+
+                            <input type="radio" id="EnTc" name="CS"
+                                    value="EnTc"> EnTc &ensp;
+
+                            <input type="radio" id="Civil" name="CS"
+                                    value="Civil"> Civil
+                        </center></b><br>
+
+                        <b> &ensp;Year: <br>
+                        <center>
+                            <input type="radio" id="First" name="First"
+                                    value="First"checked> First &ensp;
+
+                            <input type="radio" id="Second" name="First"
+                                    value="Second"> Second &ensp;
+
+                            <input type="radio" id="Third" name="First"
+                                    value="Third"> Third &ensp;
+
+                            <input type="radio" id="Fourth" name="First"
+                                    value="Fourth"> Fourth
+                        </center></b><br>
+
+                        <input id="email" type="text" class="form-control"
+                                name="email" placeholder="College Email ID">
+                        <br>
+
+                        <input id="password" type="password"
+                                class="form-control" name="password"
+                                placeholder="Password*"><br>
+
+                        <input id="cpassword" type="password"
+                                class="form-control" name="cpassword"
+                                placeholder="Confirm Password"><br><br>
+
+                        <center><b>
+                            *Password should be between 5-10 characters. It
+                            should contain atleast one alphabet and one
+                            numeric digit.
+                        </b></center>
                 </div>
                 <div class="modal-footer">
-                    <button type="submit" class="btn" name="RegisterStudent" value="Submit"><b>
+                    <button type="submit" class="btn" name="RegisterStudent"
+                            value="Submit"><b>
                         Register
                     </b></button>
                     </form>
@@ -184,32 +237,37 @@
     <!-- Teachers' login modal -->
     <div class="modal fade" id="loginTeacherModal" role="dialog">
     <div class="modal-dialog">
-    <!-- Modal content-->
     <div class="modal-content">
         <div class="modal-header">
-            <!-- '&times;' stands for × in html -->
             <button type="button" class="close" data-dismiss="modal">
                 &times;
             </button>
-            <h4 class="modal-title">Teachers' Log In</h4>
+            <h4 class="modal-title"> Teachers' Log In </h4>
         </div>
         <div class="modal-body">
-            <form action = "LoginTeacher.pl" method = "GET">
+            <form action="LoginTeacher.pl" method="GET">
                 <div class="input-group">
                     <span class="input-group-addon">
-                        <i class="glyphicon glyphicon-user"></i>
+                        <i class="glyphicon glyphicon-user"> </i>
                     </span>
-                    <input id="tid" type="text" class="form-control" name="tid" placeholder="Teacher ID">
+                    <input id="tid" type="text" class="form-control"
+                            name="tid" placeholder="Teacher ID">
                 </div>
                 <div class="input-group">
                     <span class="input-group-addon">
-                        <i class="glyphicon glyphicon-lock"></i>
+                        <i class="glyphicon glyphicon-lock"> </i>
                     </span>
-                    <input id="password" type="password" class="form-control" name="password" placeholder="Password">
+                    <input id="password" type="password"
+                            class="form-control" name="password"
+                            placeholder="Password">
                 </div>
         </div>
+
         <div class="modal-footer">
-            <button type="submit" class="btn" name="LoginTeacher" value="Submit"><b> Log In </b></button>
+            <button type="submit" class="btn" name="LoginTeacher"
+                    value="Submit"><b>
+                Log In
+            </b></button>
             </form>
         </div>
     </div>
@@ -217,35 +275,39 @@
     </div>
 
 
-        <!--Students' login modal -->
+    <!--Students' login modal -->
     <div class="modal fade" id="loginStudentModal" role="dialog">
     <div class="modal-dialog">
-    <!-- Modal content-->
     <div class="modal-content">
         <div class="modal-header">
-            <!-- '&times;' stands for × in html -->
             <button type="button" class="close" data-dismiss="modal">
                 &times;
             </button>
-            <h4 class="modal-title">Students' Log In</h4>
+            <h4 class="modal-title"> Students' Log In </h4>
         </div>
         <div class="modal-body">
-            <form action = "LoginStudent.pl" method = "GET">
+            <form action="LoginStudent.pl" method="GET">
                 <div class="input-group">
                     <span class="input-group-addon">
-                        <i class="glyphicon glyphicon-user"></i>
+                        <i class="glyphicon glyphicon-user"> </i>
                     </span>
-                    <input id="prn" type="text" class="form-control" name="prn" placeholder="PRN">
+                    <input id="prn" type="text" class="form-control"
+                            name="prn" placeholder="PRN">
                 </div>
                 <div class="input-group">
                     <span class="input-group-addon">
-                        <i class="glyphicon glyphicon-lock"></i>
+                        <i class="glyphicon glyphicon-lock"> </i>
                     </span>
-                    <input id="password" type="password" class="form-control" name="password" placeholder="Password">
+                    <input id="password" type="password"
+                            class="form-control" name="password"
+                            placeholder="Password">
                 </div>
         </div>
         <div class="modal-footer">
-            <button type="submit" class="btn" name="LoginStudent" value="Submit"><b> Log In </b></button>
+            <button type="submit" class="btn" name="LoginStudent"
+                    value="Submit"><b>
+                Log In
+            </b></button>
             </form>
         </div>
     </div>
