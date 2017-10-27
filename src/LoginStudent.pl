@@ -1,5 +1,7 @@
 #!/usr/bin/env perl
 
+# Students' Login Page
+
 use strict;
 use warnings;
 use CGI::Carp;
@@ -80,8 +82,8 @@ sub body_section
     if($flag == 1)
     {
         my $sth = $dbh -> prepare("select Name from Student
-                                    where PRN = \'$newprn\'");
-        $sth -> execute() or die;
+                                    where PRN = ?");
+        $sth -> execute($newprn) or die;
 
         while (my $row = $sth -> fetchrow_array())
         {
@@ -94,19 +96,19 @@ sub body_section
 
             <form action='Check_Quiz_List.pl' method='GET'>
                 <input type='hidden' name='prn' value='$newprn'>
-            </form>
-
-            <a href='Check_Quiz_List.pl' target='_top'>
-                <button class='button'><b>
+                <button type='submit' class='btn' name='CheckQuizList'
+                        value='Submit'><b>
                     Check Allotted Quiz Lists
                 </b></button>
-            </a>
+             </form>
 
-            <a href='Past_Quiz_Marks.htm' target='_top'>
-                <button class='button'><b>
+            <form action='Quiz_Marks.pl' method='GET'>
+                <input type='hidden' name='prn' value='$newprn'>
+                <button type='submit' class='btn' name='Quiz_Marks'
+                        value='Submit'><b>
                     Check Marks of Quizzes
                 </b></button>
-            </a>";
+            </form>";
     }
     else
     {
@@ -128,8 +130,8 @@ sub body_section
 sub db_checking
 {
     my $sth = $dbh -> prepare("select Password from Student
-                                where PRN = \'$newprn\'");
-    $sth -> execute() or die;
+                                where PRN = ?");
+    $sth -> execute($newprn) or die;
 
     while (my $row = $sth -> fetchrow_array())
     {
