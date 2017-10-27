@@ -1,5 +1,7 @@
 #!/usr/bin/env perl
 
+# To check the quiz list
+
 use strict;
 use warnings;
 use CGI::Carp;
@@ -73,8 +75,8 @@ sub body_section
         <br><br>
         <div class='container'>
         <h3><b><center> Quiz List </center></b></h3>";
-    my $sth = $dbh -> prepare("call QuizQuestionList(\'$prn\')");
-    $sth -> execute() or die;
+    my $sth = $dbh -> prepare("call QuizQuestionList(?)");
+    $sth -> execute($prn) or die;
     while($testno = $sth -> fetchrow_array())
     {
         question_info($testno);
@@ -116,8 +118,8 @@ sub question_info
 {
     my $sth = $dbh -> prepare("select Subject, SubmissionDate
                                 from QuizDB
-                                where TestNo=\'$_[0]\'");
-    $sth -> execute() or die;
+                                where TestNo=?");
+    $sth -> execute($_[0]) or die;
     while(my ($subj, $subd) = $sth -> fetchrow_array())
     {
         ($subject, $subdate) = ($subj, $subd);
