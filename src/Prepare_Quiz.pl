@@ -1,5 +1,7 @@
 #!/usr/bin/env perl
 
+# To enter quiz questions
+
 use strict;
 use warnings;
 use CGI::Carp;
@@ -25,6 +27,7 @@ my $subject = $cgi -> param('subject');
 my $maxmarks = $cgi -> param('maxmarks');
 our $noq = $cgi -> param('noq');
 my $subdate = $cgi -> param('subdate');
+my $timelimit = $cgi -> param('timelimit');
 
 print $cgi -> header('text/html');
 
@@ -105,8 +108,7 @@ sub body_section
                     style='width:70px;'> <br>
 
             <textarea name='question$_' rows='6' cols='60'
-                        placeholder='Enter your question here'>
-            </textarea><br><br><br>
+                        placeholder='Enter your question here'></textarea><br><br><br>
             </b></h4>";
     }
     print "
@@ -122,8 +124,8 @@ sub body_section
 sub info_insertion
 {
     my $sth = $dbh -> prepare("insert into QuizDB
-                                values(?, ?, ?, ?, ?, ?, ?, ?, ?)");
+                                values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
     $sth -> execute($testno, $branch, $year, $batch, $semester, $subject,
-                    $maxmarks, $noq, $subdate) or die;
+                    $maxmarks, $noq, $subdate, $timelimit) or die;
     $sth -> finish();
 }
