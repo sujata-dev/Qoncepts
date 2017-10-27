@@ -1,5 +1,7 @@
 #!/usr/bin/env perl
 
+# Teachers' Login Page
+
 use strict;
 use warnings;
 use CGI::Carp;
@@ -73,7 +75,7 @@ sub body_section
     print "
         <body>
         <div class='container'>
-        <br><br><br><br><br>
+        <br><br><br>
         <center><b>";
 
     my $flag = db_checking();
@@ -81,8 +83,8 @@ sub body_section
     if($flag == 1)
     {
         my $sth = $dbh -> prepare("select Name from Teacher
-                                    where TID = \'$newtid\'");
-        $sth -> execute() or die;
+                                    where TID = ?");
+        $sth -> execute($newtid) or die;
 
         while (my $row = $sth -> fetchrow_array())
         {
@@ -93,16 +95,14 @@ sub body_section
         print "
             Welcome $name! <br><br>
             <a href='Add_Quiz.htm' target='_top'>
-                <button class='button'><b> Add a Quiz </b></button>
-            </a>
-            <a href='Check_Quiz.htm' target='_top'>
                 <button class='button'><b>
-                    Check Quiz Sheets
+                    Add a Quiz
                 </b></button>
             </a>
-            <a href='Stats.htm' target='_top'>
+
+            <a href='Check_Quiz_Sheets_List.pl' target='_top'>
                 <button class='button'><b>
-                    Check Result Statistics
+                    Check Quiz Sheets
                 </b></button>
             </a>";
 
@@ -127,8 +127,8 @@ sub body_section
 sub db_checking
 {
     my $sth = $dbh -> prepare("select Password from Teacher
-                                where TID = \'$newtid\'");
-    $sth -> execute() or die;
+                                where TID = ?");
+    $sth -> execute($newtid) or die;
 
     while (my $row = $sth -> fetchrow_array())
     {
