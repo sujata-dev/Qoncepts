@@ -1,5 +1,7 @@
 #!/usr/bin/env perl
 
+# To notify that the test is finished
+
 use strict;
 use warnings;
 use CGI::Carp;
@@ -21,7 +23,8 @@ my $prn = $cgi -> param('prn');
 my $noq = $cgi -> param('noq');
 extract();
 
-my ($question, $marks, $ans);
+
+my ($question, $marks, $ans, $status);
 
 print $cgi -> header('text/html');
 
@@ -79,10 +82,10 @@ sub body_section
 {
     print "
         <body>
-        <br><br>
+        <br><br><br><br><br><br><br><br><br><br>
         <div class='container'>
         <center><h4><b>
-            Test Completed. <br>
+            Test Completed. <br><br>
             Result will be delivered to you shortly. <br><br>
 
         <a href='LoginStudent.pl' target='_top'>
@@ -115,7 +118,7 @@ sub q_insertion
     my $sth = $dbh -> prepare("insert into
                                 QuizAnswersDB(TestNo, PRN, QNo, Question,
                                 Answer, TotalMarks, status)
-                                values(?, ?, ?, ?, ?, ?, ?)");
+                                values(?, ?, ?, ?, ?, ?, ?);");
     $sth -> execute($testno, $prn, $_[0], $_[1], $_[2], $_[3], "Done") or die;
     $sth -> finish();
 }
