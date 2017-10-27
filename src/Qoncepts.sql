@@ -16,6 +16,7 @@ values('1111', 'Shruti Patil', 'shruti.patil@sitpune.edu.in', 'sp');
 
 
 
+
 create Table Student
 (
     PRN             varchar(255),
@@ -34,6 +35,7 @@ values('15070121560', 'Sujata Dev', 'IT', '2015-19',
 
 
 
+
 create Table QuizDB
 (
     TestNo          varchar(255),
@@ -45,13 +47,15 @@ create Table QuizDB
     MaxMarks        int,
     No_of_Questions int,
     SubmissionDate  date,
+    TimeLimit       int,
 
     primary key(TestNo)
 );
 
 insert into QuizDB
 values('11', 'IT', 'Third', '2015-19', 'IV', 'Cyber Security', 20, 5,
-        '2017-10-05');
+        '2017-10-05',45);
+
 
 
 
@@ -76,6 +80,7 @@ values('11', 1, 'List the various cyber attacks.', 6);
 
 
 
+
 delimiter //
 create procedure QuizQuestionList(in prn varchar(255))
 begin
@@ -87,6 +92,7 @@ end //
 delimiter ;
 
 call QuizQuestionList('15070121560');
+
 
 
 
@@ -113,5 +119,16 @@ values('1', '15070121560', 1,
         5, 3.5,'Done');
 
 
-values('1', '15070121560',1, 'Hello?','Hi i am Sujata', 5, 3.5,'Done');
-values('1', '15070121560',1, 'Hello?','Hi i am Sujata', 5,'Done');
+
+
+delimiter //
+create procedure CompleteAnswerSheet(in prn varchar(255), in testno varchar(255))
+begin
+    select Question, Answer, TotalMarks
+    from QuizAnswersDB natural join QuizDB
+    where QuizDB.Branch in (select Branch from Student where PRN=prn) and
+        QuizDB.Year in (select Year from Student where PRN=prn) and TestNo=testno;
+end //
+delimiter ;
+
+call CompleteAnswerSheet(15070121560,1);
