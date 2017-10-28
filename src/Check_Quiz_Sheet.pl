@@ -93,7 +93,8 @@ sub body_section
         Branch: $branch <br>
         Year: $year <br><br><br>
         </center></b></h3>";
-    my $sth = $dbh -> prepare("call CompleteAnswerSheet(?,?)");
+    my $sth = $dbh -> prepare("select Question, Answer, TotalMarks
+    from QuizAnswersDB where PRN=? and TestNo=?;");
     $sth -> execute($prn, $testno) or die;
     $i=0;
     while(($question, $answer, $totalmarks) = $sth -> fetchrow_array())
