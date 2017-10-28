@@ -117,3 +117,16 @@ values('1', '15070121560', 1,
         'Explain the process to prepare and present the Budget.',
         'A budget process refers to the process by which governments create and approve a budget, which is as follows: The Financial Service Department prepares worksheets to assist the department head in preparation of department budget estimates.',
         5, 3.5,'Done');
+
+
+
+
+delimiter //
+create procedure CompleteAnswerSheet(in prn varchar(255), in testno varchar(255))
+begin
+    select Question, Answer, TotalMarks
+    from QuizAnswersDB where PRN=prn and TestNo=testno;
+end //
+delimiter ;
+
+call CompleteAnswerSheet(15070121560,1);
