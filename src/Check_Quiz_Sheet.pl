@@ -145,18 +145,20 @@ sub studentdb_data
 
 sub already_alloted
 {
-    my $sth = $dbh -> prepare("select distinct AllotedMarks from QuizAnswersDB where PRN=?");
-    $sth -> execute($prn) or die;
+    my $flag=0;
+    my $sth = $dbh -> prepare("select distinct AllotedMarks from QuizAnswersDB where PRN=? and TestNo=?");
+    $sth -> execute($prn,$testno) or die;
 
     while (my $row = $sth -> fetchrow_array())
     {
-        if($row ne "NULL")
-        {
+        $flag=1;
+    }
+    if($flag==1)
+    {
             print "
             <script>
                 window.location = 'Already_Alloted.pl';
             </script>";
-        }
     }
     $sth -> finish();
 }
