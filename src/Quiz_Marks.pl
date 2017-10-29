@@ -69,6 +69,13 @@ sub head_section
                 box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0
                             rgba(0,0,0,0.19);
             }
+            #tab
+            {
+                -moz-tab-size: 4; /* Code for Firefox */
+                -o-tab-size: 4; /* Code for Opera 10.6-12.1 */
+                tab-size: 4;
+            }
+
         </style>
         </head>";
 }
@@ -84,19 +91,20 @@ sub body_section
 
     my $sth = $dbh -> prepare("select distinct TestNo from QuizAnswersDB where status='Done' and PRN=?");
     $sth -> execute($prn) or die;
-
+    $flag = 0;
     while (my $row = $sth -> fetchrow_array())
     {
         $testno = $row;
-        $flag = 0;
         my $sth1 = $dbh -> prepare("select sum(AllotedMarks) from QuizAnswersDB where AllotedMarks in (select AllotedMarks from QuizAnswersDB where PRN=? and TestNo=?)");
         $sth1 -> execute($prn, $testno) or die;
-        while (my $row1 = $sth -> fetchrow_array())
+        while (my $row1 = $sth1 -> fetchrow_array())
         {
             $marks = $row1;
             print "
-                TestNo $testno: <br>
-                Marks: $marks<br><br>";
+                <b><br><br>
+                TestNo:&ensp;&ensp;$testno<br>
+                Marks:&ensp;&ensp;$marks<br><br></b>";
+
             $flag = 1;
         }
         if($flag == 0)
